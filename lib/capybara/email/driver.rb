@@ -80,11 +80,7 @@ class Capybara::Email::Driver < Capybara::Driver::Base
   #
   # @return String
   def raw
-    if email.mime_type == 'text/plain'
-      email.body_text
-    else
-      email.body_html
-    end
+    email.body.encoded
   end
 
   private
